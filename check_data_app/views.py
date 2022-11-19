@@ -18,7 +18,7 @@ def Home(request):
     
 def checkWeb(country):
         try:
-            driver = webdriver.Firefox()
+            driver = webdriver.Chrome()
             driver.get("https://evisaforms.state.gov/Instructions/ACSSchedulingSystem.asp")
             driver.implicitly_wait(25)
             countries = driver.find_element(By.NAME , "CountryCodeShow")
