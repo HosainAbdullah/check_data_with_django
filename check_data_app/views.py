@@ -18,7 +18,11 @@ def Home(request):
     
 def checkWeb(country):
         try:
-            driver = webdriver.Chrome()
+            chrome_options = webdriver.ChromeOptions()
+            chrome_options.add_argument("--no-sandbox")
+            chrome_options.add_argument("--headless")
+            chrome_options.add_argument("--disable-gpu")
+            driver = webdriver.Chrome(options=chrome_options)
             driver.get("https://evisaforms.state.gov/Instructions/ACSSchedulingSystem.asp")
             driver.implicitly_wait(25)
             countries = driver.find_element(By.NAME , "CountryCodeShow")
@@ -26,7 +30,7 @@ def checkWeb(country):
             dropCountry.select_by_value(country)
             city = driver.find_element(By.NAME , "PostCodeShow")
             dropCity = Select(city)
-            dropCity.select_by_index('1')
+            dropCity.select_by_index('2')
             btn = driver.find_element(By.NAME , "Submit")
             btn.click()
             

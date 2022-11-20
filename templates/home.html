@@ -205,8 +205,8 @@
 <script src="{%static 'js/bootstrap.min.js'%}"></script>
 <script> 
   var timer;
-        let time = 1200000;
-        // let time = 300000;
+          let time = 1200000;
+         // let time = 300000;
           function getCheck() {
                 alert("5 seconds are up");
                  var text = document.getElementById('text-to-analyze').value;
@@ -220,7 +220,7 @@
                         type: "POST",
                         url: '{{ '' }}',
                         data: { csrfmiddlewaretoken: '{{ csrf_token }}', text: text },  
-                        success: function callback(response){ }
+                        success: function callback(response){ alert(response); }
                     });    
                   }
                
